@@ -111,5 +111,5 @@ struct ListDetailView: View {
         }
         saveData()
     }
-    
+     
 }
