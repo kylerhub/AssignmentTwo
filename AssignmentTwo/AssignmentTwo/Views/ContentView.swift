@@ -30,9 +30,11 @@ struct ContentView: View {
                             
                             ForEach(favouritePlaces){
                                 favouritePlace in
-                                NavigationLink(favouritePlace.place ?? ""){
-                                    ListDetailView(favouritePlace: favouritePlace)
+                                NavigationLink(destination: ListDetailView(favouritePlace: favouritePlace)){
+                                    RowView(favouritePlace: favouritePlace)
                                 }
+                                
+                                
                             }.onDelete {
                                 idx in deletePlace(idx)
                             }

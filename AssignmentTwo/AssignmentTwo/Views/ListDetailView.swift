@@ -18,10 +18,12 @@ struct ListDetailView: View {
     ///image (or its URL when in editing mode), the name, the location, and notes
     @State var details: [Detail]?
     @State var name = ""
-    @State var image = ""
+    @State var url = ""
     @State var latitude = ""
     @State var longitude = ""
     @State var notes = ""
+    
+    @State var image = defaultImage
     
     @State var loading = false /// State variable to indicate loading status
     
@@ -33,7 +35,7 @@ struct ListDetailView: View {
             } else { /// Show List if loading is false
                 VStack{
                     TextField("New Place:", text: $name)
-                    TextField("Enter Image URL:", text: $image)
+                    TextField("Enter Image URL:", text: $url)
                     TextField("Latitude:", text: $latitude)
                     TextField("Longitude:", text: $longitude)
                     TextField("Notes:", text: $notes)
@@ -46,7 +48,8 @@ struct ListDetailView: View {
                 List{
                     ForEach(details ?? []){
                         detail in
-                        Text("Image URL: \(detail.image ?? ""), Latitude: \(detail.latitude ?? ""), Longitude: \(detail.longitude ?? ""), Notes: \(detail.notes ?? "")")
+                        Text("Latitude: \(detail.latitude ?? ""), Longitude: \(detail.longitude ?? ""), Notes: \(detail.notes ?? "")")
+                        image.scaledToFit()
                     }
                     .onDelete{
                         idx in deleteDetails(idx)
@@ -73,27 +76,34 @@ struct ListDetailView: View {
                 /// stop loading after delay
                 loading = false
             }
+            Task{
+                image = await favouritePlace.getImage()
+            }
         }
     }
     
     func addNewPlaceDetails(){
-        guard name != "", image != "", latitude != "", longitude != "", notes != ""
+        guard name != "", url != "", latitude != "", longitude != "", notes != ""
         else{
             return
         }
         let placeDetails = Detail(context: ctx)
         favouritePlace.place = name
-        placeDetails.image = image
+        favouritePlace.strUrl = url
         placeDetails.latitude = latitude
         placeDetails.longitude = longitude
         placeDetails.notes = notes
         placeDetails.belongto = favouritePlace
         saveData()
         name = ""
-        image = ""
+        url = ""
         latitude = ""
         longitude = ""
         notes = ""
+        Task{
+            image = await favouritePlace.getImage()
+        }
+
     }
     
     func fetchDetails(){
@@ -109,6 +119,10 @@ struct ListDetailView: View {
         idx.map{arr[$0]}.forEach{ detail in
             ctx.delete(detail)
         }
+            
+        favouritePlace.imgurl = nil
+        image = defaultImage
+        
         saveData()
     }
      

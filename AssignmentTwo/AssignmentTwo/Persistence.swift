@@ -20,12 +20,3 @@ struct PH{
         }
     }
 }
-
-func saveData(){
-    let ctx = PH.shared.container.viewContext
-    do{
-        try ctx.save()
-    } catch {
-        fatalError("save error with \(error)")
-    }
-}

@@ -19,6 +19,8 @@
 		CFAE68FA29C2D7A0008A4C95 /* AssignmentTwoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE68F929C2D7A0008A4C95 /* AssignmentTwoUITests.swift */; };
 		CFAE68FC29C2D7A0008A4C95 /* AssignmentTwoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFAE68FB29C2D7A0008A4C95 /* AssignmentTwoUITestsLaunchTests.swift */; };
 		CFAE690929C2D7FB008A4C95 /* Readme in Resources */ = {isa = PBXBuildFile; fileRef = CFAE690829C2D7FB008A4C95 /* Readme */; };
+		CFBADFFF29F650F40013686B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBADFFE29F650F40013686B /* ViewModel.swift */; };
+		CFBAE00329F67AD20013686B /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFBAE00229F67AD20013686B /* RowView.swift */; };
 		CFC1D48529D426EC00DDECF4 /* MyDoc.docc in Sources */ = {isa = PBXBuildFile; fileRef = CFC1D48429D426EC00DDECF4 /* MyDoc.docc */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		CFAE68F929C2D7A0008A4C95 /* AssignmentTwoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTwoUITests.swift; sourceTree = "<group>"; };
 		CFAE68FB29C2D7A0008A4C95 /* AssignmentTwoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentTwoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CFAE690829C2D7FB008A4C95 /* Readme */ = {isa = PBXFileReference; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
+		CFBADFFE29F650F40013686B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		CFBAE00229F67AD20013686B /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		CFC1D48429D426EC00DDECF4 /* MyDoc.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MyDoc.docc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				CFAE68E029C2D79E008A4C95 /* ContentView.swift */,
+				CFBAE00229F67AD20013686B /* RowView.swift */,
 				CF88F97E29C447AA00F921F4 /* ListDetailView.swift */,
 			);
 			path = Views;
@@ -120,6 +125,7 @@
 				CF80910A29D2B6B400931C04 /* DataModel.swift */,
 				CF3BF36329EE029600BB5FD2 /* MyModel.xcdatamodeld */,
 				CF3BF35E29EDFEAF00BB5FD2 /* Persistence.swift */,
+				CFBADFFE29F650F40013686B /* ViewModel.swift */,
 				CFAE68E229C2D79F008A4C95 /* Assets.xcassets */,
 				CFAE690829C2D7FB008A4C95 /* Readme */,
 				CFAE68E429C2D79F008A4C95 /* Preview Content */,
@@ -288,8 +294,10 @@
 				CFAE68E129C2D79E008A4C95 /* ContentView.swift in Sources */,
 				CF88F97F29C447AA00F921F4 /* ListDetailView.swift in Sources */,
 				CF3BF35F29EDFEAF00BB5FD2 /* Persistence.swift in Sources */,
+				CFBAE00329F67AD20013686B /* RowView.swift in Sources */,
 				CFAE68DF29C2D79E008A4C95 /* AssignmentTwoApp.swift in Sources */,
 				CFC1D48529D426EC00DDECF4 /* MyDoc.docc in Sources */,
+				CFBADFFF29F650F40013686B /* ViewModel.swift in Sources */,
 				CF3BF36529EE029600BB5FD2 /* MyModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
