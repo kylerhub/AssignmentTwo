@@ -1,15 +1,11 @@
-Assignment 1
+Assignment 2
 
-Second Milestone
+In the first milestone I learned how to have persistent data using CoreData. I also learnt how to display downloaded images in different formats including thumbnails.
 
-In the third milestone I learned further manipulation including reordering, renaming and deleting with a standard swipe gesture. In addition to that, there are several new concepts that improve app usability like JSON persistence, loading indicators and a home screen app icon. I have also learned how to write additional tests for the modified structs and JSON functions.
+I have implemented these concepts to create an app that keeps a list of your favourite places, including detailed information and a picture. Each entry in the list (item) shows a thumbnail preview of the image of the place, the name of the place, and the location.
+The Master View is fully editable, i.e., you can add, remove, and edit elements. Embed your list in a Navigation View with an editable title. Each item is embedded in a Navigation Link that allows the user to get to a Detail View by clicking (tapping) on the list item.
+The Detail View shows the image (or its URL when in editing mode), the name, the location, and notes.
+All elements including the image URLs and notes is fully editable, i.e., you can add, remove, and edit elements.
+The Detail View also contains a back button (displaying the name of the list) at the top left that takes the user back to the list (Master View).
 
-I have implemented these concepts to create a Checklist list displays a loading indicator and home icon. From that screen you can add, delete with a swipe gesture, rename before going on to the items in each individual checklist. The items can be manipulated in the same way as the checklists in addition to to checkedStatus functions and also has a loading indicator.
-
-Third milestone video link
-
-https://www.kapwing.com/videos/6437b83498204b0017eb8981
-
-Git repository
-
-https://github.com/kylerhub/AssignmentOne
+https://github.com/kylerhub/AssignmentTwo

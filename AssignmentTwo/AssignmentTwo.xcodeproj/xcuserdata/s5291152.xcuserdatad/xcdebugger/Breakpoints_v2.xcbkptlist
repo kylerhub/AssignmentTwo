@@ -67,5 +67,173 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AssignmentTwoTests/AssignmentTwoTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AssignmentOneTests"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - a3eac808a26682ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.__allocating_init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - 59275d15b6b1d4b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - 15bf91c946c1473e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.__allocating_init(selector: ObjectiveC.Selector) -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - cc536e8400be84c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.init(selector: ObjectiveC.Selector) -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - 9e3cd4949bb71b9b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.__allocating_init() -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "7">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - 3950778136999fca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.init() -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - b082cc7156e439c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.__deallocating_deinit"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - 59275d15b6b1d4b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.init(invocation: Swift.Optional&lt;__C.NSInvocation&gt;) -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "94">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - cc536e8400be84c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.init(selector: ObjectiveC.Selector) -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "94">
+               </Location>
+               <Location
+                  uuid = "A05C17B5-6DF6-49D0-897C-DED718C929FD - 3950778136999fca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AssignmentTwoTests.AssignmentOneTests.init() -&gt; AssignmentTwoTests.AssignmentOneTests"
+                  moduleName = "AssignmentTwoTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/s5291152/Desktop/AssignmentTwo/AssignmentTwo/AssignmentTwoTests/AssignmentTwoTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
