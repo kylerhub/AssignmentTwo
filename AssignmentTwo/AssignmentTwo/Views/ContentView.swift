@@ -6,7 +6,8 @@
 import SwiftUI
 
 ///The ContentView struct is the Master View for the checklists that navigates to the items of each checklist
-///Importantly, all data now need to be persistent through JSON serialisation.
+//The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) var ctx
     @FetchRequest(entity: FavouritePlace.entity(), sortDescriptors: [NSSortDescriptor(key: "place", ascending: true)])
@@ -28,6 +29,7 @@ struct ContentView: View {
                         TextField("Place name", text: $place)
                         List {
                             
+                            //Each item needs to be embedded in a Navigation Link that allows the user to get to a Detail View by clicking (tapping) on the list item.
                             ForEach(favouritePlaces){
                                 favouritePlace in
                                 NavigationLink(destination: ListDetailView(favouritePlace: favouritePlace)){
@@ -76,6 +78,7 @@ struct ContentView: View {
         }
     }
     
+    //The Master View needs to be fully editable, i.e., you need to be able to addelements.
     func addNewPlace(){
         if place == "" {return}
         let favouritePlace = FavouritePlace(context: ctx)
@@ -83,6 +86,7 @@ struct ContentView: View {
         saveData()
     }
     
+    //The Master View needs to be fully editable, i.e., remove elements.
     func deletePlace(_ idx: IndexSet){
         idx.map{favouritePlaces[$0]}.forEach {place in
             ctx.delete(place)

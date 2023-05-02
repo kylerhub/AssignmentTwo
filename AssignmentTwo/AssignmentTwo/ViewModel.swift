@@ -23,6 +23,7 @@ extension FavouritePlace{
         }
     }
     
+    //function to get image
     func getImage() async -> Image {
         guard let url = self.imgurl else{return defaultImage}
         if let image = downloadImages[url] {return image}
@@ -40,6 +41,7 @@ extension FavouritePlace{
     
 }
 
+//The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
 func saveData(){
     let ctx = PH.shared.container.viewContext
     do{

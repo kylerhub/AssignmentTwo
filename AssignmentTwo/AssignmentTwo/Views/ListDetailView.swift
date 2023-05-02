@@ -34,6 +34,7 @@ struct ListDetailView: View {
                     .progressViewStyle(CircularProgressViewStyle())
             } else { /// Show List if loading is false
                 VStack{
+                    //The Detail View should show at least the image (or its URL when in editing mode), the name, the location, and notes.
                     TextField("New Place:", text: $name)
                     TextField("Enter Image URL:", text: $url)
                     TextField("Latitude:", text: $latitude)
@@ -56,6 +57,8 @@ struct ListDetailView: View {
                     }
                 }
                 
+                //Embed your list in a Navigation View with an editable title.
+                //The Detail View also needs to contain a back button (typically displaying the name of the list) at the top left that takes the user back to the list (Master View)
                 .navigationTitle(favouritePlace.place ?? "Details")
                 .task{
                     fetchDetails()
@@ -88,6 +91,9 @@ struct ListDetailView: View {
             return
         }
         let placeDetails = Detail(context: ctx)
+        
+        //The Master View needs to be fully editable, i.e., you need to be able to edit elements.
+        //All elements including the image URLs and notes need to be fully editable, i.e., you need to be able to add and edit elements.
         favouritePlace.place = name
         favouritePlace.strUrl = url
         placeDetails.latitude = latitude
@@ -112,6 +118,7 @@ struct ListDetailView: View {
         details = try? ctx.fetch(fetchRequest)
     }
     
+    //All elements including the image URLs and notes need to be fully editable, i.e., you need to be able to remove elements.
     func deleteDetails(_ idx: IndexSet){
         guard let arr = details else {
             return
