@@ -40,7 +40,10 @@ struct ListDetailView: View {
             } else { /// Show List if loading is false
                 VStack{
                     //The Detail View should show at least the image (or its URL when in editing mode), the name, the location, and notes.
-                    TextField("New Place:", text: $name)
+                    TextField("New Place:", text: $model.name)
+                    Image(systemName: "sparkle.magnifyingglass").onTapGesture{
+                        checkAddress()
+                    }
                     TextField("Enter Image URL:", text: $url)
                     TextField("Notes:", text: $notes)
                     
@@ -162,6 +165,10 @@ struct ListDetailView: View {
         saveData()
     }
      
+    func checkAddress(){
+        
+    }
+    
     func checkLocation(){
         
     }
@@ -174,5 +181,7 @@ struct ListDetailView: View {
         model.updateFromRegion()
         latitude = model.latStr
         longitude = model.longStr
+        model.fromLocToAddress()
+        name = model.name
     }
 }

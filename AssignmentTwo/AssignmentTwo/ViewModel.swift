@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import SwiftUI
+import CoreLocation
 
 let defaultImage = Image(systemName: "photo").resizable()
 var downloadImages :[URL:Image] = [:]
@@ -73,5 +74,18 @@ extension MyLocation {
     func updateFromRegion(){
         latitude = region.center.latitude
         longitude = region.center.longitude
+    }
+    
+    func fromLocToAddress(){
+        let coder = CLGeocoder()
+        coder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { marks, error in
+            if let err = error {
+                print("error in fromLocToAddress \(err)")
+                return
+            }
+            let mark = marks?.first
+            let name = mark?.name ?? mark?.country ?? mark?.locality ?? mark?.administrativeArea ?? "No Name"
+            self.name = name
+        }
     }
 }
