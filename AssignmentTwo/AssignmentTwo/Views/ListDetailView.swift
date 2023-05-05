@@ -118,7 +118,7 @@ struct ListDetailView: View {
     }
     
     func addNewPlaceDetails(){
-        guard name != "", url != "", latitude != "0.00000", longitude != "0.00000", notes != ""
+        guard name != "", url != "", latitude + longitude != "0.00000", notes != ""
         else{
             return
         }
@@ -166,15 +166,27 @@ struct ListDetailView: View {
     }
      
     func checkAddress(){
-        
+        model.fromAddressToLocOld(updateViewLoc)
+        //Task{
+            //await model.fromAddressToLoc()
+            //latitude = model.latStr
+            //longitude = model.longStr
+        //}
     }
     
     func checkLocation(){
-        
+        model.longStr = longitude
+        model.latStr = latitude
+        model.fromLocToAddress()
+        model.setupRegion()
     }
     
     func checkZoom(){
-        
+        checkMap()
+        model.updateFromRegion()
+        model.fromZoomToDelta(zoom)
+        model.fromLocToAddress()
+        model.setupRegion()
     }
     
     func checkMap(){
@@ -183,5 +195,10 @@ struct ListDetailView: View {
         longitude = model.longStr
         model.fromLocToAddress()
         name = model.name
+    }
+    
+    func updateViewLoc(){
+        latitude = model.latStr
+        longitude = model.longStr
     }
 }

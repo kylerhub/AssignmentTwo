@@ -76,6 +76,15 @@ extension MyLocation {
         longitude = region.center.longitude
     }
     
+    func setupRegion(){
+        withAnimation{
+            region.center.latitude = latitude
+            region.center.longitude = longitude
+            region.span.longitudeDelta = delta
+            region.span.latitudeDelta = delta
+        }
+    }
+    
     func fromLocToAddress(){
         let coder = CLGeocoder()
         coder.reverseGeocodeLocation(CLLocation(latitude: latitude, longitude: longitude)) { marks, error in
@@ -88,4 +97,40 @@ extension MyLocation {
             self.name = name
         }
     }
+    
+    func fromZoomToDelta(_ zoom: Double ){
+        let c1 = -10.0
+        let c2 = 2.0
+        delta = pow(10.0, zoom / c1 + c2)
+    }
+    
+    func fromAddressToLocOld(_ cb: @escaping ()->Void){
+        let encode = CLGeocoder()
+        encode.geocodeAddressString(self.name) { marks, error in
+            if let err = error {
+                print("error in fromAddressToLoc \(err)")
+                return
+            }
+            if let mark = marks?.first{
+                self.latitude = mark.location?.coordinate.latitude ?? self.latitude
+                self.longitude = mark.location?.coordinate.longitude ??
+                    self.longitude
+                cb()
+                self.setupRegion()
+            }
+        }
+    }
+    
+    func fromAddressToLoc() async {
+        let encode = CLGeocoder()
+        let marks = try? await encode.geocodeAddressString(self.name)
+        
+        if let mark = marks?.first{
+            self.latitude = mark.location?.coordinate.latitude ?? self.latitude
+            self.longitude = mark.location?.coordinate.longitude ?? self.longitude
+            self.setupRegion()
+        }
+    }
+    
+
 }
