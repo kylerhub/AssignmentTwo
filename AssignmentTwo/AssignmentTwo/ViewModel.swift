@@ -50,3 +50,28 @@ func saveData(){
         fatalError("save error with \(error)")
     }
 }
+
+extension MyLocation {
+    var latStr: String{
+        get{String(format: "%.5f", latitude)}
+        set{
+            guard let lat = Double(newValue), lat <= 90.0, lat >= -90.0 else
+            {return}
+            latitude = lat
+        }
+    }
+    
+    var longStr: String{
+        get{String(format: "%.5f", longitude)}
+        set{
+            guard let long = Double(newValue), long <= 180.0, long >= -180.0 else
+            {return}
+            longitude = long
+        }
+    }
+    
+    func updateFromRegion(){
+        latitude = region.center.latitude
+        longitude = region.center.longitude
+    }
+}

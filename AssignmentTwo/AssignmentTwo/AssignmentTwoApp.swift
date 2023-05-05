@@ -12,14 +12,12 @@ import SwiftUI
 ///Struct for the app
 struct AssignmentOneApp: App {
     
-    //uses testChecklists data
-    
-    @State var model:DataModel = DataModel()
+    @StateObject var model = MyLocation.shared
     
     var ph = PH.shared
     var body: some Scene {
         WindowGroup {
-            ContentView().environment(\.managedObjectContext, ph.container.viewContext)
+            ContentView(model:model).environment(\.managedObjectContext, ph.container.viewContext)
         }
     }
 }

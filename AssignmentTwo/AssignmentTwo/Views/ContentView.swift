@@ -19,6 +19,8 @@ struct ContentView: View {
     ///You display a Loading indicator, while your data are being loaded.
     @State var isLoading = true
     
+    @ObservedObject var model:MyLocation
+    
     var body: some View {
         NavigationView {
             Group {
@@ -32,7 +34,7 @@ struct ContentView: View {
                             //Each item needs to be embedded in a Navigation Link that allows the user to get to a Detail View by clicking (tapping) on the list item.
                             ForEach(favouritePlaces){
                                 favouritePlace in
-                                NavigationLink(destination: ListDetailView(favouritePlace: favouritePlace)){
+                                NavigationLink(destination: ListDetailView(favouritePlace: favouritePlace, model: model)){
                                     RowView(favouritePlace: favouritePlace)
                                 }
                                 

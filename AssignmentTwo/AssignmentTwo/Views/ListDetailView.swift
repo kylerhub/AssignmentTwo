@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import MapKit
 
 ///The ListDetailView struct is the Detail View for the items within each checklist
 
@@ -19,13 +20,17 @@ struct ListDetailView: View {
     @State var details: [Detail]?
     @State var name = ""
     @State var url = ""
-    @State var latitude = ""
-    @State var longitude = ""
+    @State var latitude = "0.0"
+    @State var longitude = "0.0"
+    
     @State var notes = ""
     
     @State var image = defaultImage
     
     @State var loading = false /// State variable to indicate loading status
+    
+    @ObservedObject var model:MyLocation
+    @State var zoom = 10.0
     
     var body: some View {
         Group {
@@ -37,9 +42,32 @@ struct ListDetailView: View {
                     //The Detail View should show at least the image (or its URL when in editing mode), the name, the location, and notes.
                     TextField("New Place:", text: $name)
                     TextField("Enter Image URL:", text: $url)
-                    TextField("Latitude:", text: $latitude)
-                    TextField("Longitude:", text: $longitude)
                     TextField("Notes:", text: $notes)
+                    
+                    Text("Latitude/Longitude")
+                    TextField("", text: $latitude)
+                    TextField("", text: $longitude)
+                    Image(systemName: "sparkle.magnifyingglass").onTapGesture{
+                        checkLocation()
+                    }
+                    
+                    Slider(value:$zoom, in: 10...60){
+                        if !$0 {
+                            checkZoom()
+                        }
+                    }
+                    
+                    ZStack{
+                        Map(coordinateRegion: $model.region)
+                        VStack{
+                            Text("Latitude :\(model.region.center.latitude)")
+                            Text("Longitude :\(model.region.center.longitude)")
+                            Button("Update"){
+                                checkMap()
+                            }
+                        }
+                    }
+
                 }
                 Button("Add or Edit Place Details"){
                     addNewPlaceDetails()
@@ -62,6 +90,7 @@ struct ListDetailView: View {
                 .navigationTitle(favouritePlace.place ?? "Details")
                 .task{
                     fetchDetails()
+                    checkMap()
                 }
                 
                             .navigationBarItems(
@@ -86,7 +115,7 @@ struct ListDetailView: View {
     }
     
     func addNewPlaceDetails(){
-        guard name != "", url != "", latitude != "", longitude != "", notes != ""
+        guard name != "", url != "", latitude != "0.00000", longitude != "0.00000", notes != ""
         else{
             return
         }
@@ -133,4 +162,17 @@ struct ListDetailView: View {
         saveData()
     }
      
+    func checkLocation(){
+        
+    }
+    
+    func checkZoom(){
+        
+    }
+    
+    func checkMap(){
+        model.updateFromRegion()
+        latitude = model.latStr
+        longitude = model.longStr
+    }
 }

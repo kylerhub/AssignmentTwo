@@ -10,7 +10,6 @@ import CoreData
 
 
 final class AssignmentOneTests: XCTestCase {
-    
     var ctx: NSManagedObjectContext!
     var view: ListDetailView!
     
@@ -31,38 +30,6 @@ final class AssignmentOneTests: XCTestCase {
         XCTAssertEqual(places.count, 1)
         XCTAssertEqual(places[0].place, "Test Place")
         XCTAssertEqual(places[0].strUrl, "https://example.com/image.png")
-    }
-    
-    func testDeletePlace() {
-        let contentView = ContentView()
-        let initialCount = contentView.favouritePlaces.count
-        
-        // Delete the first place
-        let placeToDelete = contentView.favouritePlaces.first
-        let idxToDelete = IndexSet(integer: 0)
-        contentView.deletePlace(idxToDelete)
-        
-        // Check that the number of places has decreased by 1
-        XCTAssertEqual(contentView.favouritePlaces.count, initialCount - 1)
-        
-        // Check that the correct place was deleted
-        XCTAssertFalse(contentView.favouritePlaces.contains(placeToDelete!))
-    }
-    
-    func testAddNewPlace() {
-        let contentView = ContentView()
-        let initialCount = contentView.favouritePlaces.count
-        
-        // Add a new place
-        contentView.place = "New Place"
-        contentView.addNewPlace()
-        
-        // Check that the number of places has increased by 1
-        XCTAssertEqual(contentView.favouritePlaces.count, initialCount + 1)
-        
-        // Check that the new place was added with the correct name
-        let newPlace = contentView.favouritePlaces.last
-        XCTAssertEqual(newPlace?.place, "New Place")
     }
     
     func testAddNewPlaceDetails() throws {
@@ -116,28 +83,24 @@ final class AssignmentOneTests: XCTestCase {
         XCTAssertEqual(details.count, 0)
     }
     
-    func testDataModel() {
-        var dataModel = DataModel()
-        
-        func testLoad() {
-            
-            // Load the checklists from the file into a new DataModel instance
-            
-            dataModel.load()
-            
-            // Check that the loaded checklists match the original checklists
-            XCTAssertEqual(dataModel.checklists.count, 1)
-        }
-            /// Test saving data
-        dataModel.save()
-        let fileURL = getFile()
-        XCTAssertNotNil(fileURL)
-        guard let data = try? Data(contentsOf: fileURL!) else {
-            XCTFail("Unable to load data from file")
-            return
-        }
-        let decodedDataModel = try? JSONDecoder().decode(DataModel.self, from: data)
-        XCTAssertNotNil(decodedDataModel)
+    func testLatStr(){
+        let model = MyLocation.shared
+        model.latStr = "45"
+        XCTAssert(model.latStr == "45.00000")
+        model.latStr = "91"
+        XCTAssert(model.latStr == "45.00000")
+        model.latStr = "-45.123456"
+        XCTAssert(model.latStr == "-45.12346")
+    }
+    
+    func testLongStr(){
+        let model = MyLocation.shared
+        model.latStr = "45"
+        XCTAssert(model.longStr == "45.00000")
+        model.latStr = "181"
+        XCTAssert(model.longStr == "45.00000")
+        model.latStr = "-45.123456"
+        XCTAssert(model.longStr == "-45.12346")
     }
     
 }
