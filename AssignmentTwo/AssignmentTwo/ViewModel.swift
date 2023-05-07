@@ -24,7 +24,7 @@ extension FavouritePlace{
         }
     }
     
-    //function to get image
+    ///function to get image
     func getImage() async -> Image {
         guard let url = self.imgurl else{return defaultImage}
         if let image = downloadImages[url] {return image}
@@ -42,7 +42,7 @@ extension FavouritePlace{
     
 }
 
-//The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
+///The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
 func saveData(){
     let ctx = PH.shared.container.viewContext
     do{
@@ -53,6 +53,8 @@ func saveData(){
 }
 
 extension MyLocation {
+    
+    ///limits latitude from -90 to 90 and formats it to 5 decimal places
     var latStr: String{
         get{String(format: "%.5f", latitude)}
         set{
@@ -62,6 +64,7 @@ extension MyLocation {
         }
     }
     
+    ///limits longitude from -180 to 180 and formats it to 5 decimal places
     var longStr: String{
         get{String(format: "%.5f", longitude)}
         set{
@@ -76,6 +79,7 @@ extension MyLocation {
         longitude = region.center.longitude
     }
     
+    ///animation when finding location on map
     func setupRegion(){
         withAnimation{
             region.center.latitude = latitude
@@ -121,6 +125,7 @@ extension MyLocation {
         }
     }
     
+    ///uses async
     func fromAddressToLoc() async {
         let encode = CLGeocoder()
         let marks = try? await encode.geocodeAddressString(self.name)
@@ -132,5 +137,4 @@ extension MyLocation {
         }
     }
     
-
 }

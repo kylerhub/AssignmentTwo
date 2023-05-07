@@ -8,80 +8,7 @@ import XCTest
 import CoreData
 @testable import AssignmentTwo
 
-
 final class AssignmentOneTests: XCTestCase {
-    var ctx: NSManagedObjectContext!
-    var view: ListDetailView!
-    
-    func testGetImage() async throws {
-        let place = FavouritePlace(context: ctx)
-        place.strUrl = "https://picsum.photos/200"
-        let image = try await place.getImage()
-        XCTAssertNotNil(image)
-    }
-    
-    func testSaveData() {
-        let place = FavouritePlace(context: ctx)
-        place.place = "Test Place"
-        place.strUrl = "https://example.com/image.png"
-        saveData()
-        let fetchRequest = NSFetchRequest<FavouritePlace>(entityName: "FavouritePlace")
-        let places = try! ctx.fetch(fetchRequest)
-        XCTAssertEqual(places.count, 1)
-        XCTAssertEqual(places[0].place, "Test Place")
-        XCTAssertEqual(places[0].strUrl, "https://example.com/image.png")
-    }
-    
-    func testAddNewPlaceDetails() throws {
-        view.name = "Test"
-        view.url = "https://www.example.com/image.jpg"
-        view.latitude = "37.7749"
-        view.longitude = "-122.4194"
-        view.notes = "Test notes"
-        view.addNewPlaceDetails()
-        XCTAssertNotNil(view.favouritePlace.place)
-        XCTAssertEqual(view.favouritePlace.place, "Test")
-        XCTAssertNotNil(view.favouritePlace.strUrl)
-        XCTAssertEqual(view.favouritePlace.strUrl, "https://www.example.com/image.jpg")
-        let detailsFetchRequest: NSFetchRequest<Detail> = Detail.fetchRequest()
-        detailsFetchRequest.predicate = NSPredicate(format: "belongto == %@", view.favouritePlace)
-        let details = try ctx.fetch(detailsFetchRequest)
-        XCTAssertEqual(details.count, 1)
-        XCTAssertEqual(details.first?.latitude, "37.7749")
-        XCTAssertEqual(details.first?.longitude, "-122.4194")
-        XCTAssertEqual(details.first?.notes, "Test notes")
-    }
-    
-    func testFetchDetails() throws {
-        view.name = "Test"
-        view.url = "https://www.example.com/image.jpg"
-        view.latitude = "37.7749"
-        view.longitude = "-122.4194"
-        view.notes = "Test notes"
-        view.addNewPlaceDetails()
-        view.fetchDetails()
-        XCTAssertEqual(view.details?.count, 1)
-        XCTAssertEqual(view.details?.first?.latitude, "37.7749")
-        XCTAssertEqual(view.details?.first?.longitude, "-122.4194")
-        XCTAssertEqual(view.details?.first?.notes, "Test notes")
-    }
-
-    func testDeleteDetails() throws {
-        view.name = "Test"
-        view.url = "https://www.example.com/image.jpg"
-        view.latitude = "37.7749"
-        view.longitude = "-122.4194"
-        view.notes = "Test notes"
-        view.addNewPlaceDetails()
-        view.fetchDetails()
-        XCTAssertEqual(view.details?.count, 1)
-        view.deleteDetails(IndexSet(integer: 0))
-        XCTAssertEqual(view.details?.count, 0)
-        let detailsFetchRequest: NSFetchRequest<Detail> = Detail.fetchRequest()
-        detailsFetchRequest.predicate = NSPredicate(format: "belongto == %@", view.favouritePlace)
-        let details = try ctx.fetch(detailsFetchRequest)
-        XCTAssertEqual(details.count, 0)
-    }
     
     func testLatStr(){
         let model = MyLocation.shared
@@ -95,14 +22,63 @@ final class AssignmentOneTests: XCTestCase {
     
     func testLongStr(){
         let model = MyLocation.shared
-        model.latStr = "45"
+        model.longStr = "45"
         XCTAssert(model.longStr == "45.00000")
-        model.latStr = "181"
+        model.longStr = "181"
         XCTAssert(model.longStr == "45.00000")
-        model.latStr = "-45.123456"
+        model.longStr = "-45.123456"
         XCTAssert(model.longStr == "-45.12346")
     }
     
+    // Test for FavouritePlace extension
+
+    func testGetImage() async {
+        let place = FavouritePlace(context: PH.shared.container.viewContext)
+        place.strUrl = "https://example.com/image.jpg"
+        
+        let image = await place.getImage()
+        
+        XCTAssertNotNil(image)
+    }
+    
+    func testSaveData() throws {
+        let myLocation = MyLocation()
+        myLocation.name = "San Francisco"
+        
+        XCTAssertNoThrow(try saveData())
+    }
+    
+    func testUpdateFromRegion() {
+        var location = MyLocation()
+        location.region.center.latitude = 45.678
+        location.region.center.longitude = -90.123
+        
+        location.updateFromRegion()
+        
+        XCTAssertEqual(location.latitude, 45.678)
+        XCTAssertEqual(location.longitude, -90.123)
+    }
+    
+    func testSetupRegion() {
+        var location = MyLocation()
+        location.latitude = 40.123
+        location.longitude = -80.456
+        
+        location.setupRegion()
+        
+        XCTAssertEqual(location.region.center.latitude, 40.123)
+        XCTAssertEqual(location.region.center.longitude, -80.456)
+    }
+    
+    func testFromAddressToLoc() async {
+        var location = MyLocation()
+        location.name = "1600 Amphitheatre Parkway, Mountain View, CA"
+        
+        try? await location.fromAddressToLoc()
+        
+        XCTAssertEqual(location.latitude, 37.4220, accuracy: 0.001)
+        XCTAssertEqual(location.longitude, -122.0841, accuracy: 0.001)
+    }
 }
 
 

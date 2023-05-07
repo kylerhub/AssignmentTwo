@@ -1,11 +1,7 @@
 Assignment 2
 
-In the first milestone I learned how to have persistent data using CoreData. I also learnt how to display downloaded images in different formats including thumbnails.
+In the second milestone I learned how to use MapKit and CoreLocation to visualise the name, latitude and longitude coordinates in an interactive map.
 
-I have implemented these concepts to create an app that keeps a list of your favourite places, including detailed information and a picture. Each entry in the list (item) shows a thumbnail preview of the image of the place, the name of the place, and the location.
-The Master View is fully editable, i.e., you can add, remove, and edit elements. Embed your list in a Navigation View with an editable title. Each item is embedded in a Navigation Link that allows the user to get to a Detail View by clicking (tapping) on the list item.
-The Detail View shows the image (or its URL when in editing mode), the name, the location, and notes.
-All elements including the image URLs and notes is fully editable, i.e., you can add, remove, and edit elements.
-The Detail View also contains a back button (displaying the name of the list) at the top left that takes the user back to the list (Master View).
+I have implemented these concepts to add a navigation link to my detail view to display the full information of that location, which includes the name of the location, its coordinates, as well as an interactive map showing the location. The map updates whenever the coordinates of the location change. The user can change the location (coordinates) interactively through the map.
 
 https://github.com/kylerhub/AssignmentTwo
