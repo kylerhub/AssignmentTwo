@@ -7,6 +7,7 @@
 import Foundation
 import MapKit
 
+///Class for map visualisation
 class MyLocation: ObservableObject{
     
     @Published var name = ""

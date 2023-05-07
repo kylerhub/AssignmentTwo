@@ -7,7 +7,6 @@ import SwiftUI
 
 ///The ContentView struct is the Master View for the checklists that navigates to the items of each checklist
 ///The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
-
 struct ContentView: View {
     @Environment(\.managedObjectContext) var ctx
     @FetchRequest(entity: FavouritePlace.entity(), sortDescriptors: [NSSortDescriptor(key: "place", ascending: true)])

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///struct for image 
 struct RowView: View {
     var favouritePlace : FavouritePlace
     @State var image = defaultImage

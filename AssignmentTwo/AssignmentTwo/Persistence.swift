@@ -8,8 +8,7 @@
 import Foundation
 import CoreData
 
-//The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
-
+///The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
 struct PH{
     static let shared = PH()
     let container : NSPersistentContainer

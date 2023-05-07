@@ -13,6 +13,7 @@ import CoreLocation
 let defaultImage = Image(systemName: "photo").resizable()
 var downloadImages :[URL:Image] = [:]
 
+///extension to FavouritePlace class 
 extension FavouritePlace{
     var strUrl: String{
         get{
@@ -52,6 +53,7 @@ func saveData(){
     }
 }
 
+///Extension to MyLocation class to limit latitude and longitude values and format them to 5 decimal places
 extension MyLocation {
     
     ///limits latitude from -90 to 90 and formats it to 5 decimal places

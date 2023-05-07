@@ -19,7 +19,35 @@ Pan the map
 
 ## Topics
 
+Classes
 
+class Detail
+Details include image, latitude, longitude, name and notes.
+Belongsto favourite place
+class FavouritePlace
+Contains Detail
+class MyLocation
+Extension to MyLocation class to limit latitude and longitude values and format them to 5 decimal places
+
+Structures
+
+struct AssignmentTwoApp
+Struct for the app that uses coredata persistence
+struct ContentView
+The ContentView struct is the Master View for the checklists that navigates to the items of each checklist The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
+struct ListDetailView
+The ListDetailView struct is the Detail View for the items within each checklist
+struct PH
+The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
+struct RowView
+struct for image
+
+Variables
+let defaultImage: Image
+var downloadImages: [URL : Image]
+Functions
+func saveData()
+The purpose of this milestone to create an advanced Master/Detail app with persistent data using CoreData.
 
 ### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
 

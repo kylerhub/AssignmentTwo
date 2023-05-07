@@ -9,8 +9,8 @@ import SwiftUI
 
 @main
 
-///Struct for the app
-struct AssignmentOneApp: App {
+///Struct for the app that uses coredata persistence 
+struct AssignmentTwoApp: App {
     
     @StateObject var model = MyLocation.shared
     

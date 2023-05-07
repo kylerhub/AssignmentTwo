@@ -10,7 +10,6 @@ import CoreData
 import MapKit
 
 ///The ListDetailView struct is the Detail View for the items within each checklist
-
 struct ListDetailView: View {
     
     @Environment(\.managedObjectContext) var ctx
