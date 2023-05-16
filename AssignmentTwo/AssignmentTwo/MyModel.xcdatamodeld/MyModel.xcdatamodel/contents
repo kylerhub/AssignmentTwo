@@ -6,6 +6,8 @@
         <attribute name="longitude" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="sunrise" optional="YES" attributeType="String"/>
+        <attribute name="sunset" optional="YES" attributeType="String"/>
         <relationship name="belongto" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavouritePlace" inverseName="contains" inverseEntity="FavouritePlace"/>
     </entity>
     <entity name="FavouritePlace" representedClassName="FavouritePlace" syncable="YES" codeGenerationType="class">

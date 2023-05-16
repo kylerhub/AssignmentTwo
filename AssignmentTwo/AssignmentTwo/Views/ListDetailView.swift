@@ -69,7 +69,6 @@ struct ListDetailView: View {
                             }
                         }
                     }
-
                 }
                 Button("Add or Edit Place Details"){
                     addNewPlaceDetails()
@@ -79,7 +78,7 @@ struct ListDetailView: View {
                 List{
                     ForEach(details ?? []){
                         detail in
-                        Text("Latitude: \(detail.latitude ?? ""), Longitude: \(detail.longitude ?? ""), Notes: \(detail.notes ?? "")")
+                        Text("Latitude: \(detail.latitude ?? ""), Longitude: \(detail.longitude ?? ""), Notes: \(detail.notes ?? ""), Sunrise: \(detail.sunrise ?? ""), Sunset: \(detail.sunset ?? "")")
                         image.scaledToFit()
                     }
                     .onDelete{
@@ -93,6 +92,7 @@ struct ListDetailView: View {
                 .task{
                     fetchDetails()
                     checkMap()
+                    model.fetchSunriseSunset()
                 }
                 
                             .navigationBarItems(
@@ -130,6 +130,8 @@ struct ListDetailView: View {
         placeDetails.latitude = latitude
         placeDetails.longitude = longitude
         placeDetails.notes = notes
+        placeDetails.sunrise = model.sunrise
+        placeDetails.sunset = model.sunset
         placeDetails.belongto = favouritePlace
         saveData()
         name = ""
@@ -204,4 +206,5 @@ struct ListDetailView: View {
         latitude = model.latStr
         longitude = model.longStr
     }
+    
 }

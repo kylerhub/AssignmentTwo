@@ -139,4 +139,52 @@ extension MyLocation {
         }
     }
     
+    struct SunriseSunset: Decodable{
+        var sunrise: String
+        var sunset: String
+    }
+    
+    struct SunriseSunsetAPI: Decodable{
+        var results: SunriseSunset
+    }
+        
+    func fetchSunriseSunset() {
+        let urlStr = "https://api.sunrise-sunset.org/json?lat=\(self.latitude)&lng=\(self.longitude)"
+        
+        guard let url = URL(string: urlStr) else {return}
+        let request = URLRequest(url:url)
+        URLSession.shared.dataTask(with:request) { data, _, _ in
+            guard let data = data,
+                  let api = try?
+                    JSONDecoder().decode(SunriseSunsetAPI.self, from:data)
+            else {return}
+            DispatchQueue.main.async {
+                self.sunrise = api.results.sunrise
+                self.sunset = api.results.sunset
+            }
+        }.resume()
+    }
+    
+    var sunRiseView: some View{
+        HStack{
+            Text("Sunrise:")
+            if let tz = self.sunrise{
+                Text(tz)
+            } else {
+                ProgressView()
+            }
+        }
+    }
+    
+    var sunSetView: some View{
+        HStack{
+            Text("Sunset:")
+            if let tz = self.sunset{
+                Text(tz)
+            } else {
+                ProgressView()
+            }
+        }
+    }
+    
 }
