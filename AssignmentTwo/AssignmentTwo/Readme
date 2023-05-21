@@ -1,6 +1,6 @@
 Assignment 2
 
-In the second milestone I learned how to use online location services, including
+In the third milestone I learned how to use online location services, including
 geo-coding, reverse geo-coding,and sunrise/sunset times.
 
 I have implemented these concepts to convert forwards and backwards between a location name and its geographical coordinates for each place in the app.
