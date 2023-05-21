@@ -147,7 +147,8 @@ extension MyLocation {
     struct SunriseSunsetAPI: Decodable{
         var results: SunriseSunset
     }
-        
+     
+    ///function to fetch sunrise and sunset times
     func fetchSunriseSunset() {
         let urlStr = "https://api.sunrise-sunset.org/json?lat=\(self.latitude)&lng=\(self.longitude)"
         
@@ -186,5 +187,4 @@ extension MyLocation {
             }
         }
     }
-    
 }

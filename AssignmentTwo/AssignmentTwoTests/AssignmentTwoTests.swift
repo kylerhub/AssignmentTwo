@@ -79,6 +79,71 @@ final class AssignmentOneTests: XCTestCase {
         XCTAssertEqual(location.latitude, 37.4220, accuracy: 0.001)
         XCTAssertEqual(location.longitude, -122.0841, accuracy: 0.001)
     }
+    
+    func testSunRiseView() {
+        let myLocation = MyLocation()
+        
+        // Test when sunrise is not nil
+        myLocation.sunrise = "6:00 AM"
+        let sunriseView = myLocation.sunRiseView
+        XCTAssertNotNil(sunriseView)
+    }
+    
+    func testSunSetView() {
+        let myLocation = MyLocation()
+        
+        // Test when sunrise is not nil
+        myLocation.sunset = "6:00 PM"
+        let sunsetView = myLocation.sunSetView
+        XCTAssertNotNil(sunsetView)
+    }
+    
+    func testFetchSunriseSunset() {
+            let myLocation = MyLocation()
+            myLocation.latitude = 37.7749 // Set latitude to a specific value for testing
+            myLocation.longitude = -122.4194 // Set longitude to a specific value for testing
+            
+            let expectation = XCTestExpectation(description: "Fetch Sunrise Sunset")
+            
+            DispatchQueue.main.async {
+                myLocation.fetchSunriseSunset()
+                expectation.fulfill()
+            }
+            
+            wait(for: [expectation], timeout: 5)
+        }
+    
+    func testSunriseSunsetDecoding() throws {
+            let json = """
+            {
+                "sunrise": "6:00 AM",
+                "sunset": "8:00 PM"
+            }
+            """
+            
+            let data = Data(json.utf8)
+            let sunriseSunset = try JSONDecoder().decode(MyLocation.SunriseSunset.self, from: data)
+            
+            XCTAssertEqual(sunriseSunset.sunrise, "6:00 AM")
+            XCTAssertEqual(sunriseSunset.sunset, "8:00 PM")
+        }
+    
+    func testSunriseSunsetAPIDecoding() throws {
+            let json = """
+            {
+                "results": {
+                    "sunrise": "6:00 AM",
+                    "sunset": "8:00 PM"
+                }
+            }
+            """
+            
+            let data = Data(json.utf8)
+            let sunriseSunsetAPI = try JSONDecoder().decode(MyLocation.SunriseSunsetAPI.self, from: data)
+            
+            XCTAssertEqual(sunriseSunsetAPI.results.sunrise, "6:00 AM")
+            XCTAssertEqual(sunriseSunsetAPI.results.sunset, "8:00 PM")
+        }
 }
 
 
