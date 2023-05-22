@@ -117,7 +117,7 @@ struct ListDetailView: View {
     }
     
     func addNewPlaceDetails(){
-        guard name != "", url != "", latitude + longitude != "0.00000", notes != ""
+        guard name != "", url != "", notes != ""
         else{
             return
         }
